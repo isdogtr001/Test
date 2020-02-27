@@ -1,0 +1,6 @@
+{
+    "env": {
+        "MONGO_ATLAS_PW": "jatuporn_j01",
+        "JWT_KEY" : "secert"
+    }
+}
