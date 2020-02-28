@@ -16,17 +16,26 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 
-mongoose.connect(
-    //'mongodb+srv://joaza01:' + process.env.MONGO_ATLAS_PW + ' @cluster0-c1pyw.mongodb.net/test?retryWrites=true',
+// mongoose.connect(
+//     //'mongodb+srv://joaza01:' + process.env.MONGO_ATLAS_PW + ' @cluster0-c1pyw.mongodb.net/test?retryWrites=true',
 
-    // 'mongodb://joaza01:' + process.env.MONGO_ATLAS_PW + '@cluster0-shard-00-00-c1pyw.mongodb.net:27017,cluster0-shard-00-01-c1pyw.mongodb.net:27017,cluster0-shard-00-02-c1pyw.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true',
-    // { useNewUrlParser: true }
+//     // 'mongodb://joaza01:' + process.env.MONGO_ATLAS_PW + '@cluster0-shard-00-00-c1pyw.mongodb.net:27017,cluster0-shard-00-01-c1pyw.mongodb.net:27017,cluster0-shard-00-02-c1pyw.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true',
+//     // { useNewUrlParser: true }
 
-    'mongodb+srv://Joa:'+ process.env.MONGO_ATLAS_PW + '@cluster0-xjctn.gcp.mongodb.net/test?retryWrites=true&w=majority',
+//     'mongodb+srv://Joa:'+ process.env.MONGO_ATLAS_PW + '@cluster0-xjctn.gcp.mongodb.net/test?retryWrites=true&w=majority',
    
-    { useUnifiedTopology: true , useNewUrlParser: true }
+//     { useUnifiedTopology: true , useNewUrlParser: true }
 
-);
+// );
+mongoose.connect("mongodb://mongo:27017/docker-node-mongo", {
+  useNewUrlParser: true,
+  useCreateIndex: true
+});
+
+mongoose.connection.on("open", err => {
+  if (err) console.log(chalk.red("Error connecting to our mongo database"));
+  console.log("Connected to mongo database successfully");
+});
 
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
@@ -44,7 +53,7 @@ app.use((req, res, next) => {
 app.use('/project', projectRoutes);
 app.use('/task', taskRoutes);
 app.use('/subtask', subtaskRoutes);
-app.use('/user', userRoutes);
+// app.use('/user', userRoutes);
 app.use('/image', imageRoutes);
  
 
