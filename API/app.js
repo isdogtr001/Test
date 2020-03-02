@@ -29,7 +29,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // );
 mongoose.connect("mongodb://mongo:27017/docker-node-mongo", {
   useNewUrlParser: true,
-  useCreateIndex: true
+  useCreateIndex: true,
+  useUnifiedTopology: true 
 });
 
 mongoose.connection.on("open", err => {
