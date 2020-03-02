@@ -21,11 +21,11 @@ steps:
   - 'image'
   - 'deployment'
   - '${_DEPLOYMENT_NAME}'
-  - '${_POD_SPEC}=gcr.io/$PROJECT_ID/quotations-management:$COMMIT_SHA'
+  - '${_POD_SPEC}=gcr.io/$PROJECT_ID/test-1:$COMMIT_SHA'
   - '--namespace'
   - 'default'
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=${_CLOUDSDK_COMPUTE_ZONE}'
   - 'CLOUDSDK_CONTAINER_CLUSTER=${_CLOUDSDK_CONTAINER_CLUSTER}'
   
-images: ['gcr.io/$PROJECT_ID/quotations-management:$COMMIT_SHA']  
+images: ['gcr.io/$PROJECT_ID/nginx-2:$COMMIT_SHA']  
