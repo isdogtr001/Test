@@ -29,3 +29,7 @@ steps:
   - 'CLOUDSDK_CONTAINER_CLUSTER=${_CLOUDSDK_CONTAINER_CLUSTER}'
   
 images: ['gcr.io/$PROJECT_ID/nginx-2:$COMMIT_SHA']  
+
+CLOUDSDK_COMPUTE_REGION=<cluster region> (regional clusters)
+CLOUDSDK_COMPUTE_ZONE=<cluster zone>
+CLOUDSDK_CONTAINER_CLUSTER=<cluster name>
