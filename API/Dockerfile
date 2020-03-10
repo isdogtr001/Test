@@ -14,5 +14,4 @@ RUN npm install
 RUN npm install react-scripts -g
 
 # start app
-#eigjeijgiegph
 CMD ["npm", "start"]
